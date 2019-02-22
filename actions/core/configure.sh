@@ -190,6 +190,10 @@ __core_configure_environment ()
         grep -q '^CORE_P2P_PORT' "$envFile" 2>&1 || echo 'CORE_P2P_PORT=4000' >> "$envFile" 2>&1
     fi
 
+    if [[ "$1" = "fark" ]]; then
+        grep -q '^CORE_P2P_PORT' "$envFile" 2>&1 || echo 'CORE_P2P_PORT=4100' >> "$envFile" 2>&1
+    fi
+
     grep -q '^CORE_API_HOST' "$envFile" 2>&1 || echo 'CORE_API_HOST=0.0.0.0' >> "$envFile" 2>&1
     grep -q '^CORE_API_PORT' "$envFile" 2>&1 || echo 'CORE_API_PORT=4003' >> "$envFile" 2>&1
 
