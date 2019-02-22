@@ -91,7 +91,7 @@ __core_configure_network ()
 
     info "Which network would you like to configure?"
 
-    validNetworks=("mainnet" "devnet" "testnet")
+    validNetworks=("mainnet" "devnet" "testnet", "fark")
 
     select opt in "${validNetworks[@]}"; do
         case "$opt" in
@@ -114,6 +114,13 @@ __core_configure_network ()
                 __core_configure_branch "develop"
                 __core_configure_core "testnet"
                 __core_configure_environment "testnet"
+                break
+            ;;
+            "fark")
+                __core_configure_commander "fark"
+                __core_configure_branch "master"
+                __core_configure_core "fark"
+                __core_configure_environment "fark"
                 break
             ;;
             *)
